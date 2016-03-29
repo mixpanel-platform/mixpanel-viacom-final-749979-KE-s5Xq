@@ -246,11 +246,10 @@
             $('.date-time').text(time);
             $('.date-pm').text(ampm);
 
-            var contentParams = {limit: 25, type:'unique', unit:'hour', from: moment().subtract(1,'hour'), to: moment()}
+            var contentParams = {limit: 25, type:'unique', unit:'day', from: moment().subtract(1,'hour'), to: moment()}
             var contentQuery = MP.api.segment('Video Played', 'Content Name', contentParams)
 
             contentQuery.done(function(results){
-                var data = {}
                 _.each(_.keys(results.values()), function(key){
                     /* sum over data in value of results.values()[key] */
                     var keyData = results.values()[key];
@@ -259,7 +258,6 @@
                     /* sort and reverse */
                     sortedKeys.sort()
                     sortedKeys.reverse()
-                    console.log("sortedKeys" + sortedKeys)
 
                     var current = 0
                     var lastMinute = 0
