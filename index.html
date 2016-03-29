@@ -246,7 +246,7 @@
             $('.date-time').text(time);
             $('.date-pm').text(ampm);
 
-            var contentParams = {limit: 25, type:'unique', unit:'minute', from: moment.subtract(1,'hour'), to: moment()}
+            var contentParams = {limit: 25, type:'unique', unit:'minute', from: moment().subtract(1,'hour'), to: moment()}
             var contentQuery = MP.api.segment('Video Finished', 'Content Name', contentParams)
 
             content.done(function(results){
