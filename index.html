@@ -250,7 +250,6 @@
             var contentQuery = MP.api.segment('Video Played', 'Content Name', contentParams)
 
             contentQuery.done(function(results){
-                debugger
                 var data = {}
                 _.each(_.keys(results.values()), function(key){
                     /* sum over data in value of results.values()[key] */
@@ -260,8 +259,7 @@
                     /* sort and reverse */
                     sortedKeys.sort()
                     sortedKeys.reverse()
-                    console.log(sortedKeys)
-                    debugger
+                    console.log("sortedKeys" + sortedKeys)
 
                     var current = 0
                     var lastMinute = 0
