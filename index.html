@@ -248,6 +248,7 @@
 
             var contentParams = {limit: 25, type:'unique', unit:'hour', from: moment().subtract(1,'hour'), to: moment()}
             var contentQuery = MP.api.segment('Video Finished', 'Content Name', contentParams)
+            debugger
 
             contentQuery.done(function(results){
                 var data = {}
