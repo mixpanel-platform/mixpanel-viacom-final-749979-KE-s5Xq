@@ -246,10 +246,10 @@
             $('.date-time').text(time);
             $('.date-pm').text(ampm);
 
-            var pageViewParams = {limit: 25, type:'unique', unit:'minute', from: moment(), to: moment()}
-            var pageViewQuery = MP.api.segment('Page View', 'Url', pageViewParams)
+            var contentParams = {limit: 25, type:'unique', unit:'minute', from: moment(), to: moment()}
+            var contentQuery = MP.api.segment('Video Finished', 'Content Name', contentParams)
 
-            pageViewQuery.done(function(results){
+            contentQuery.done(function(results){
                 var data = {}
                 _.each(_.keys(results.values()), function(key){
                     /* sum over data in value of results.values()[key] */
