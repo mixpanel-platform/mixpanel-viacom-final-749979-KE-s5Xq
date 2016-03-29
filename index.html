@@ -246,10 +246,10 @@
             $('.date-time').text(time);
             $('.date-pm').text(ampm);
 
-            var contentParams = {limit: 25, type:'unique', unit:'minute', from: moment(), to: moment()}
+            var contentParams = {limit: 25, type:'unique', unit:'minute', from: moment.subtract(1,'hour'), to: moment()}
             var contentQuery = MP.api.segment('Video Finished', 'Content Name', contentParams)
 
-            contentQuery.done(function(results){
+            content.done(function(results){
                 var data = {}
                 _.each(_.keys(results.values()), function(key){
                     /* sum over data in value of results.values()[key] */
@@ -303,7 +303,7 @@
 
         }
 
-        setInterval(refresh, 30000);
+        setInterval(refresh, 15000);
 
         function pad(d) {
             return (d < 10) ? '0' + d.toString() : d.toString();
