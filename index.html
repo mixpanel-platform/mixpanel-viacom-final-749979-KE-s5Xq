@@ -246,7 +246,7 @@
             $('.date-time').text(time);
             $('.date-pm').text(ampm);
 
-            var contentParams = {limit: 25, type:'unique', unit:'minute', from: moment().subtract(1,'hour'), to: moment()}
+            var contentParams = {limit: 25, type:'unique', unit:'hour', from: moment().subtract(1,'hour'), to: moment()}
             var contentQuery = MP.api.segment('Video Finished', 'Content Name', contentParams)
 
             contentQuery.done(function(results){
@@ -263,24 +263,8 @@
                     var current = 0
                     var lastMinute = 0
                     var count = 0
-
-                    while (count <= sortedKeys.length) {
-                        if (keyData[sortedKeys[count]] > 0) {
-                            console.log(sortedKeys[count])
-                            console.log(sortedKeys[count + 1])
-                            current = keyData[sortedKeys[count]]
-                            try {
-                                lastMinute = keyData[sortedKeys[count + 1]]
-                            } catch (err){
-                                lastMinute = keyData[sortedKeys[0]]
-                            }
-                            break;
-                        }
-                        count ++
-                    }
                     
                     var totalCurrentUsers = current + lastMinute;
-                    data[toTitleCase(key.replace("/ffl/",""))] = totalCurrentUsers
                 });
 
 
